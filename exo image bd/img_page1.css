@@ -1,0 +1,44 @@
+body
+{
+    background-color: black;
+    margin: auto;
+}
+div
+{
+margin-bottom: 5px;
+margin: auto;
+width: 80%;
+}
+#page1, #page2, #page3, #page4
+{
+    text-align: center; 
+    background-color: white;
+    border: 2px solid grey;
+    padding: 1px;
+    margin-bottom: 10px;
+
+}
+#middle, #mid
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 5px;
+}
+#deb
+{
+    display: inline-flex;
+    margin-left: -10px;
+    margin-bottom: 10px;
+}
+#milieu
+{
+    text-align: justify;
+}
+
+
+
+
+
+
