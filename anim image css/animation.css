@@ -1,0 +1,33 @@
+#button{
+    position: relative;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    animation: rotate 12s ease infinite;
+}
+#zamasu{
+    position: relative;
+    margin: auto;
+    width: 0%;
+    height: 0px;
+    left: 20%;
+    top: 50px;
+    box-shadow: 10px 10px;
+    animation: move 10s linear ;
+}
+@keyframes move {
+    0% {width:0%; height:0px; left:0%; top:0px; transform: rotateZ(0deg)rotateX(0deg)rotateY(0deg); border-radius: 50%;}
+    50% {width:50%; height:400px; left:20%; top:50px; transform: rotateZ(180deg)rotateX(180deg)rotateY(180deg); border-radius: 0%;}
+    100% {width:0%; height:0px; left:40%; top:100px; transform: rotateZ(360deg)rotateX(360deg)rotateY(360deg); border-radius: 50%;}
+  }
+  @keyframes rotate {
+    0% {top: 20px; left: 20px; width:0%; height:0px; transform: rotateZ(0deg)rotateX(0deg)rotateY(0deg);}
+    25% {top: 500px; left: 20px; width:0%; height:0px; transform: rotateZ(90deg)rotateX(90deg)rotateY(90deg);}
+    50% {top: 500px; left: 80%; width:0%; height:0px; transform: rotateZ(180deg)rotateX(180deg)rotateY(180deg);}
+    75% {top: 20px; left: 80%; width:0%; height:0px; transform: rotateZ(270deg)rotateX(270deg)rotateY(270deg);}
+    95% {top: 20px; left: 20px; width:20%; height:100%; transform: rotateZ(360deg)rotateX(360deg)rotateY(360deg);}
+    100% {top: 20px; left: 20px; width:0%; height:0px; transform: rotateZ(0deg)rotateX(0deg)rotateY(0deg);}
+
+  }
+
+ 
