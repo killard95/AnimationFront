@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="anim.css" />
+	<script type="text/javascript" src="anim.js"></script>
+    <title>Animation</title>
+</head>
+<body>
+
+    <h3>Animation</h3>
+    <p id="output"></p>
+    <p id="output1"></p>
+   
+    <h3>obtenir l'age à partir d'un nombre (année):</h3>
+    <div id="age année"><label>entrer une année :</label>  <input type="number" id="year" placeholder="ex: 1984" min="0" max="2022"><br><br>
+    <input type=button id="button" onClick="calculer_age()" value="age" /><br><br>
+    <div id="solution2">Age : <span id="age">(click "age")</span></div><br>
+
+
+    <div id="div_color"> <h3>changer la couleur de fond</h3>
+    <p>couleur aléatoire </p>
+    <input type="button" id ="button" onClick="change_color()" value="change color"/></div><br>
+    
+
+        <h3>Marvel</h3>
+        <div id='marvel'>
+        <img src="hulk.jpg" id="hulk">
+        <img src="iron.jpg" id="iron">
+        <img src="dead.jpg" id="dead">
+        <img src="captain.jpg" id="captain">
+        </div>
+        <input type="button" name="button" onClick="up()" value="left" />
+        <input type="button" name="button" onClick="down()" value="right" /> <br>
+    
+    
+        <h3>nombre romain</h3>
+        <label>Entrer un nombre : </label><input type="number" id="num" value="4926"><br><br>
+        <input type="button" onClick="to_roman_number()" value="obtenir nombre romain" /><br>
+        <p id="roman_number"></p>
+
+        <h3>langage extraterrestre</h3>
+        <label>nombre de mots : </label><input type="number" id="mot" value="500"><br>
+        <label>nombre de syllabes : </label><input type="number" id="syllabe" value="4" /><br><br>
+        <input type="button" onClick="textEt()" value="obtenir un texte E.T"/><br>
+        <p id="textEt"></p>
+
+
+    
+    <script>
+
+        // les images, deux inputs pour deplacer une image parmi d'autres images. (ou avec les touches du clavier)
+        // function up(){
+
+        let array_img = document.getElementsByTagName("img");
+        let hulk = array_img[0]
+        let iron = array_img[1]
+        let dead = array_img[2]
+        let captain = array_img[3]
+   
+        
+        function up(){ 
+            if (hulk == array_img[1] ) {
+                iron.insertAdjacentElement('beforebegin', hulk);
+            }else if (hulk == array_img[2]){
+                dead.insertAdjacentElement('beforebegin', hulk);
+            }else if (hulk == array_img[3]){
+                captain.insertAdjacentElement('beforebegin', hulk);
+            }
+        }
+
+        function down(){
+            if (hulk == array_img[0] ) {
+                iron.insertAdjacentElement('afterend', hulk);
+            }else if (hulk == array_img[1]){
+                dead.insertAdjacentElement('afterend', hulk);
+            }else if (hulk == array_img[2]){
+                captain.insertAdjacentElement('afterend', hulk);
+            }
+        }
+
+     
+
+
+
+
+            let out = document.getElementById("output");
+            let str = "hello les everybody ";
+            let out1 = document.getElementById("output1");
+            let str1 = "hello les everybody ";
+            let rom = document.getElementById("roman_number");
+            let text = document.getElementById("textEt")
+      
+        
+            setInterval(() => {
+                // enleve le dernier caractere et le met au début et fait ca à répetition pour faire tourner la str de gauche a droite
+                str = str[str.length-1] + str.substring(0,str.length-1);
+                out.innerHTML = str
+                out.style.color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")" ;
+                // text.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")" ;
+            }, 50);
+            setInterval(() => {
+                // enleve le premier caractere et le met a la fin et fait ca à répetition pour faire tourner la str de droite a gauche
+                str1 = str1.substring(1,str1.length) + str1.substring(0,1) ;
+                out1.innerHTML = str1
+                out1.style.color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")" ;
+                rom.style.color ="rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")" ;
+            }, 50);
+        </script>
+
+
+</body>
+</html>
