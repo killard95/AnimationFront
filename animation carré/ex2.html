@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ex2.css" />
+	<!-- <script type="text/javascript" src="ex2.js"></script> -->
+    <title>Exercice 2</title>
+</head>
+<body>
+    <h1>Utiliser les evenements pour intéragir sur la page internet</h1>
+    <h3>Créer une nouvelle entrée dans le menu déroulant</h3>
+    <label>value de la nouvelle option : </label><input type="text" id="text"/><br><br>
+    <label>id et texte de la nouvelle option :</label><input type="text" id="valeur" /><br><br>
+    <form id="menu">
+        <p>
+            <label for="menu">Choisissez votre sport</label><br>
+            <select name="sport" id="sport">
+                <option id="foot" value="foot" selected>Football</option>
+                <option id="basket" value="basket">Basket</option>
+                <option id="tennis" value="tennis">Tennis</option>
+                <option id="badminton" value="badminton">Badminton</option>
+                <option id="rugby" value="rugby">Rugby</option>
+                
+            </select>
+        </p>
+    </form>
+    <input type="button" onClick="create_option()" value="Obtenir résultat"/><br><br><br>
+
+    <h3>en agissant sur le lien on modifie l'apparence du tableau</h3>
+
+    <a id="lien" href="#" onmouseover="changeColor()" onmouseout="returnColor()" onmousedown="clickOn()" onmouseup="clickOut()">lien</a><br>
+
+    <table id="table">
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>e</td>
+            <td>f</td>
+        </tr>
+        <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+        </tr>
+    </table>
+
+    <h3>Déplacer le carré</h3>
+
+    <div id="depart" style="background:red; width:50px; height:50px; position:absolute"></div>
+    <div id="arrive" style="position:absolute; left:250px; border:black solid 2px; width:50px; height:50px"></div>
+
+
+<script>
+
+function create_option(){
+    let texte = document.getElementById("text").value;
+    let valeur = document.getElementById("valeur").value;
+    let sel = document.getElementById("sport")
+    let opt = document.getElementsByTagName("option");;
+    sel.appendChild(document.createElement("option"));
+    let lastopt = opt[opt.length-1];
+    lastopt.setAttribute("value", valeur);
+    lastopt.setAttribute("id", texte);
+    lastopt.innerHTML = valeur
+}
+
+    function changeColor(){
+            table.style.backgroundColor = "lime"
+        }
+    function returnColor(){
+        table.style.backgroundColor = "white"
+        }
+    function clickOut(){
+        table.style.backgroundColor = "white"
+    }
+    function clickOn(){
+        table.style.backgroundColor = "cyan"
+    }
+
+let speed = 10
+let x = 0;
+let y = 0;
+let carre = document.getElementById("depart");
+
+
+document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowDown" && x < 1000) {
+            x += speed;
+        } else if (event.key === "ArrowRight" && y < 1000) {
+            y += speed
+        } else if (event.key === "ArrowLeft" && y > 0) {
+            y -= speed;
+        } else if (event.key === "ArrowUp" && x > 0) {
+            x -= speed;
+        }
+        carre.style.top = x + "px";
+        carre.style.left = y + "px";
+        if (y > 200 && y < 310 && x > 480 && x < 580){
+                carre.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")"; 
+        }else{
+            carre.style.backgroundColor = "red";
+        }
+    })
+
+
+
+
+
+    </script>
+
+</body>
+</html>
